@@ -86,6 +86,13 @@ check (lower_bound < upper_bound),
 unique(quest_id,lower_bound,upper_bound)
 );
 
+CREATE TABLE quiz(
+qid varchar(50) not null unique,
+title varchar(50) not null,
+allow_hint boolean,
+due_date timestamp not null
+);
+
 CREATE TABLE weight(
 id int primary key,
 question_id int not null references questions(question_id),
@@ -93,19 +100,15 @@ weight int not null,
 unique(question_id,weight)
 );
 
-CREATE TABLE quiz(
+CREATE TABLE quiz_assigned(
 id int primary key,
-qid varchar(50) unique not null,
-cid int references classes(id),
-title varchar(50) not null,
-allow_hint boolean,
-due_date timestamp not null,
-question int not null references weight(id),
-unique(qid,question)
+qid varchar(50) not null ,
+cid int not null references classes(id),
+question_id int not null references weight(id),
+unique(qid,cid)
 );
 
 CREATE TABLE response(
-quiz_id int not null references quiz(id),
-answer varchar(50) default '',
-unique(quiz_id,answer)
+id int not null references quiz_assigned(id),
+answer varchar(50) default ''
 );

@@ -46,9 +46,39 @@ insert into student(0997733991,'Emilia','Clarke');
 insert into student(5555555555,'Kit','Harrington');
 insert into student(1111111111,'Sophie','Turner');
 
-insert into quiz values('Pr1-220310', 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', );
-insert into quiz_bank('Pr1-220310',601,2);
-insert into quiz_bank('Pr1-220310',566,2);
-insert into quiz_bank('Pr1-220310',790,2);
-insert into quiz_bank('Pr1-220310',625,2);
-insert into classes(1,8,120, );
+insert into weight(1, 601, 2);
+insert into weight(2, 566, 1);
+insert into weight(3, 790, 3);
+insert into weight(4, 625, 2);
+
+insert into classes(1, 1, 8, 120, 1111111111);
+insert into classes(2, 1, 8, 120, 0998801234);
+insert into classes(3, 1, 8, 120, 0010784522);
+insert into classes(4, 1, 8, 120, 0997733991);
+insert into classes(5, 1, 8, 120, 5555555555);
+insert into classes(6, 2, 5, 366, 2222222222)
+
+insert into quiz(1, 'Pr1-220310', 1, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 1);
+insert into quiz(2, 'Pr1-220310', 1, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 2);
+insert into quiz(3, 'Pr1-220310', 1, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 3);
+insert into quiz(4, 'Pr1-220310', 1, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 4);
+
+insert into quiz(1, 'Pr1-220310', 2, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 1);
+insert into quiz(2, 'Pr1-220310', 2, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 2);
+insert into quiz(3, 'Pr1-220310', 2, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 3);
+insert into quiz(4, 'Pr1-220310', 2, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 4);
+
+insert into quiz(1, 'Pr1-220310', 3, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 1);
+insert into quiz(2, 'Pr1-220310', 3, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 2);
+insert into quiz(3, 'Pr1-220310', 3, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 3);
+insert into quiz(4, 'Pr1-220310', 3, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 4);
+
+insert into quiz(1, 'Pr1-220310', 4, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 1);
+insert into quiz(2, 'Pr1-220310', 4, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 2);
+insert into quiz(3, 'Pr1-220310', 4, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 3);
+insert into quiz(4, 'Pr1-220310', 4, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 4);
+
+insert into quiz(1, 'Pr1-220310', 5, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 1);
+insert into quiz(2, 'Pr1-220310', 5, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 2);
+insert into quiz(3, 'Pr1-220310', 5, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 3);
+insert into quiz(4, 'Pr1-220310', 5, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 4);
