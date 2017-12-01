@@ -50,8 +50,8 @@ q_type question_type not null,
 correct_ans int not null references answers(aid)
 );
 
-ALTER TABLE answers ADD CONSTRAINT fk_election_id 
-  FOREIGN KEY (quest_id) REFERENCES questions.id;
+ALTER TABLE answers ADD CONSTRAINT fk_question_id
+    quest_id references questions.question_id;
 
 CREATE TABLE quiz(
 id int primary key,
@@ -59,7 +59,7 @@ quiz_id varchar(50) not null unique,
 title varchar(50) not null,
 allow_hint boolean,
 due_date date not null,
-cid int references class(id)
+cid int references classes(id)
 );
 
 CREATE TABLE quiz_bank(
