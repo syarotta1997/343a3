@@ -65,14 +65,14 @@ CREATE TABLE questions(
 question_id int not null unique,
 text varchar(50) not null,
 q_type question_type not null,
-correct_ans int not null
+correct_ans varchar(50) not null
 );
 
-CREATE TABLE answers(
-aid int not null unique,
+CREATE TABLE incorrect_answers(
 quest_id int not null references questions(question_id),
 text varchar(50) not null,
-unique(aid,quest_id)
+hint varchar(50) not null,
+unique(quest_id,text)
 );
 
 CREATE TABLE quiz(
@@ -88,13 +88,6 @@ qid varchar(50) not null references quiz(quiz_id),
 question_id int not null references questions(question_id),
 weight int not null,
 unique(qid, question_id)
-);
-
-CREATE TABLE incorrect_answers(
-quest_id int not null references questions(question_id),
-aid int not null references answers(aid),
-hint varchar(50) not null,
-unique(aid,quest_id)
 );
 
 CREATE TABLE response(
