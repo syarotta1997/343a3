@@ -17,7 +17,7 @@ id int primary key,
 grade int not null,
 room int not null references room(id),
 student int REFERENCES student(sid),
-unique(id,student),
+unique(id,student)
 );
 -- creating an extra relation to constraint that each room has at most one teacher
 CREATE TABLE room(
@@ -77,7 +77,7 @@ id int primary key,
 qid varchar(50) not null references quiz(quiz_id),
 quest_id int not null references questions(question_id),
 student int REFERENCES student(sid),
-answer varchar(50) set default ''
+answer varchar(50) default ''
 unique(qid,quest_id,student)
 );
 
