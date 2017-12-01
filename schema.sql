@@ -36,6 +36,7 @@ CREATE TABLE student(
 sid int not null unique,
 first_name varchar(50) not null,
 last_name varchar(50) not null
+check ( cast(sid as varchar(10)) like '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
 );
 
 -- creating an extra relation to constraint that each room has at most one teacher
@@ -45,12 +46,16 @@ teacher varchar(50) not null
 );
 
 CREATE TABLE classes(
-id int primary key,
-grade int not null,
-room int not null references room(rid),
-student int REFERENCES student(sid),
-unique(id,student)
+id int,
+grade int,
+room int references room(rid),
+primary key(cid,grade,room)
 );
+
+CREATE TABLE takes(
+cid int not null references classes(id),
+sid int references student(sid),
+)
 
 /*
 -- type enums 
@@ -68,11 +73,20 @@ q_type question_type not null,
 correct_ans varchar(50) not null
 );
 
-CREATE TABLE incorrect_answers(
+CREATE TABLE MC_incorrect_answers(
 quest_id int not null references questions(question_id),
 text varchar(50) not null,
 hint varchar(50) not null,
 unique(quest_id,text)
+);
+
+CREATE TABLE NUM_incorrect_answers(
+quest_id int not null references questions(question_id),
+lower_bound int not null,
+upper_bound int not null,
+hint varchar(50) not null,
+check (lower_bound < upper_cound),
+unique(quest_id,lower_bound,upper_bound)
 );
 
 CREATE TABLE quiz(

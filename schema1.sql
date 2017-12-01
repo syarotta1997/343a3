@@ -97,7 +97,7 @@ unique(qid, question_id)
 CREATE TABLE incorrect_answers(
 quest_id int not null references questions(question_id),
 aid int not null references answers(aid),
-hint varchar(50) not null,
+hint varchar(50),
 unique(aid,quest_id)
 );
 
