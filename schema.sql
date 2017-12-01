@@ -15,17 +15,14 @@ last_name varchar(50) not null
 CREATE TABLE classes(
 id int primary key,
 grade int not null,
-room int not null,
-teacher varchar(50) not null,
+room int not null references room(id),
 student int REFERENCES student(sid),
 unique(id,student),
-/* 
-The following constraint checks only one room has at most 1 teacher
-*/
-CHECK(not exists
-                (select *
-                 from class as c1, class as c2
-                 where c1.room = c2.room and c1.teacher != c2.teacher))
+);
+-- creating an extra relation to constraint that each room has at most one teacher
+CREATE TABLE room(
+id int primary key,
+teacher varchar(50) not null
 );
 
 CREATE TABLE quiz(
@@ -82,17 +79,5 @@ quest_id int not null references questions(question_id),
 student int REFERENCES student(sid),
 answer varchar(50) set default ''
 unique(qid,quest_id,student)
-/* 
-The following constraint checks only a student in the class that was assigned 
-a quiz can answer questions on that quiz
-*/
-CHECK (not exists
-                ((select unique student
-                 from response)
-                 except
-                 (select unique sid from response join quiz on response.qid = quiz.quiz_id 
-                                                        join classes on quiz.cid = classes.id)
-                )   
-            )
 );
 
