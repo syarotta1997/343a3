@@ -46,10 +46,16 @@ teacher varchar(50) not null
 );
 
 CREATE TABLE classes(
-classid int,
+id int primary key,
+classid int not null,
 grade int,
 room int references room(rid),
-sid int not null references student(sid)
+sid int not null references student(sid),
+unique(classid,sid)
+);
+
+CREATE TABLE enrolled(
+cid int references classes(cid),
 );
 
 /*
@@ -84,25 +90,27 @@ check (lower_bound < upper_bound),
 unique(quest_id,lower_bound,upper_bound)
 );
 
-CREATE TABLE quiz(
-id varchar(50) unique not null,
-cid int references classes(cid),
-title varchar(50) not null,
-allow_hint boolean,
-due_date timestamp not null
+CREATE TABLE weight(
+id int primary key,
+question_id int not null references questions(question_id),
+weight int not null,
+unique(question_id,weight)
 );
 
-CREATE TABLE quiz_bank(
+CREATE TABLE quiz(
 id int primary key,
-quiz_id varchar(50) references quiz(id),
-question_id int references questions(question_id),
-weight int not null,
-unique(quiz_id,question_id)
+qid varchar(50) unique not null,
+cid int references classes(classid),
+title varchar(50) not null,
+allow_hint boolean,
+due_date timestamp not null,
+question int not null references weight(id),
+unique(qid,question)
 );
 
 CREATE TABLE response(
-quiz_bank_id int not null references quiz_bank(id),
-sid int references student(sid),
+question int id not null references quiz(id),
+sid int not null references student(sid),
 answer varchar(50) default '',
-unique(quiz_bank_id,sid)
+unique(question,stud_class_id)
 );
