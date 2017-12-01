@@ -77,7 +77,7 @@ id int primary key,
 qid varchar(50) not null references quiz(quiz_id),
 quest_id int not null references questions(question_id),
 student int REFERENCES student(sid),
-answer varchar(50) default ''
+answer varchar(50) default '',
 unique(qid,quest_id,student)
 );
 
