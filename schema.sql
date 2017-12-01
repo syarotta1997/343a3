@@ -35,23 +35,20 @@ NUM = numeric questions
 CREATE TYPE question_type AS ENUM(
 	'MC', 'TF', 'NUM');
 
-CREATE TABLE answers(
-aid int primary key,
-quest_id int not null,
-text varchar(50) not null,
-unique(aid,quest_id)
-);
-
 CREATE TABLE questions(
 id int primary key,
 quesiton_id int not null unique,
 text varchar(50) not null,
 q_type question_type not null,
-correct_ans int not null references answers(aid)
 );
 
-ALTER TABLE answers ADD CONSTRAINT fk_question_id
-    quest_id references questions.question_id;
+CREATE TABLE answers(
+aid int primary key,
+quest_id int not null references questions.question_id,
+text varchar(50) not null,
+correct_ans boolean not null,
+unique(aid,quest_id)
+);
 
 CREATE TABLE quiz(
 id int primary key,
