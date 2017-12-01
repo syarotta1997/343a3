@@ -55,7 +55,7 @@ primary key(id,grade,room)
 CREATE TABLE takes(
 cid int not null references classes(id),
 sid int references student(sid)
-)
+);
 
 /*
 -- type enums 
