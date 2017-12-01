@@ -11,14 +11,14 @@ drop schema if exists quizschema cascade;
 create schema quizschema;
 set search_path to quizschema;
 
-CREATE TABLE student{
+CREATE TABLE student(
 id int primary key,
 sid int not null unique,
 first_name varchar(50) not null,
 last_name varchar(50) not null
-};
+);
 
-CREATE TABLE classes{
+CREATE TABLE classes(
 id int primary key,
 grade int not null,
 room int not null,
@@ -32,24 +32,24 @@ CHECK(not exists
                 (select *
                  from class as c1, class as c2
                  where c1.room = c2.room and c1.teacher != c2.teacher))
-};
+);
 
-CREATE TABLE quiz{
+CREATE TABLE quiz(
 id int primary key,
 quiz_id varchar(50) not null unique,
 title varchar(50) not null,
 allow_hint boolean,
 due_date date not null,
 cid int references class(id)
-};
+);
 
-CREATE TABLE quiz_bank{
+CREATE TABLE quiz_bank(
 id int primary key,
 qid varchar(50) not null references quiz(quiz_id),
 question_id int not null references questions(question_id),
 weight int not null,
 unique(qid, question_id)
-};
+);
 /*
 -- type enums 
 MC = multiple choice
@@ -59,29 +59,29 @@ NUM = numeric questions
 CREATE TYPE question_type AS ENUM(
 	'MC', 'TF', 'NUM');
 
-CREATE TABLE questions{
+CREATE TABLE questions(
 id int primary key,
 quesiton_id int not null unique,
 text varchar(50) not null,
 q_type question_type not null,
 correct_ans int not null references answers(aid)
-};
+);
 
-CREATE TABLE answers{
+CREATE TABLE answers(
 aid int primary key,
 quest_id int not null references questions(question_id),
 text varchar(50) not null,
 unique(aid,quest_id)
-};
+);
 
-CREATE TABLE incorrect_answers{
+CREATE TABLE incorrect_answers(
 quest_id int not null references questions(question_id),
 aid int not null references answers(aid),
 hint varchar(50) not null,
 unique(aid,quest_id)
-};
+);
 
-CREATE TABLE response{
+CREATE TABLE response(
 id int primary key,
 qid varchar(50) not null references quiz(quiz_id),
 quest_id int not null references questions(question_id),
@@ -100,5 +100,5 @@ CHECK (not exists
                                                         join classes on quiz.cid = classes.id)
                 )   
             )
-};
+);
 
