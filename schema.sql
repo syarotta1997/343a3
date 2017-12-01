@@ -49,12 +49,12 @@ CREATE TABLE classes(
 id int,
 grade int,
 room int references room(rid),
-primary key(cid,grade,room)
+primary key(id,grade,room)
 );
 
 CREATE TABLE takes(
 cid int not null references classes(id),
-sid int references student(sid),
+sid int references student(sid)
 )
 
 /*
