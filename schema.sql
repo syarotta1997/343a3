@@ -46,15 +46,10 @@ teacher varchar(50) not null
 );
 
 CREATE TABLE classes(
-id int,
+classid int,
 grade int,
 room int references room(rid),
-primary key(id,grade,room)
-);
-
-CREATE TABLE takes(
-cid int not null references classes(id),
-sid int references student(sid)
+sid int not null references student(id)
 );
 
 /*
@@ -90,24 +85,24 @@ unique(quest_id,lower_bound,upper_bound)
 );
 
 CREATE TABLE quiz(
-quiz_id varchar(50) not null unique,
+id varchar(50) unique not null,
+cid int references classes(cid);
 title varchar(50) not null,
 allow_hint boolean,
-due_date date not null,
-cid int references classes(id)
+due_date timestamp not null,
 );
 
 CREATE TABLE quiz_bank(
-qid varchar(50) not null references quiz(quiz_id),
-question_id int not null references questions(question_id),
+id int primary key,
+quiz_id varchar(50) references quiz(id),
+question_id int references questions(question_id),
 weight int not null,
-unique(qid, question_id)
+unique(quiz_id,question_id)
 );
 
 CREATE TABLE response(
-qid varchar(50) not null references quiz(quiz_id),
-sid int not null references student(sid),
-quest_id int not null references questions(question_id),
+quiz_bank_id int not null references quiz_bank(id),
+sid int references student(sid),
 answer varchar(50) default '',
-unique(qid,sid,quest_id)
+unique(quiz_bank_id,sid)
 );
