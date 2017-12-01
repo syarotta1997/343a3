@@ -65,15 +65,15 @@ CREATE TYPE question_type AS ENUM(
 
 CREATE TABLE questions(
 question_id int not null unique,
-text varchar(50) not null,
+text varchar(255) not null,
 q_type question_type not null,
-correct_ans varchar(50) not null
+correct_ans varchar(255) not null
 );
 
 CREATE TABLE MC_incorrect_answers(
 quest_id int not null references questions(question_id),
-text varchar(50) not null,
-hint varchar(50) not null,
+text varchar(255) not null,
+hint varchar(255) not null,
 unique(quest_id,text)
 );
 
@@ -81,14 +81,14 @@ CREATE TABLE NUM_incorrect_answers(
 quest_id int not null references questions(question_id),
 lower_bound int not null,
 upper_bound int not null,
-hint varchar(50) not null,
+hint varchar(255) not null,
 check (lower_bound < upper_bound),
 unique(quest_id,lower_bound,upper_bound)
 );
 
 CREATE TABLE quiz(
-qid varchar(50) not null unique,
-title varchar(50) not null,
+qid varchar(255) not null unique,
+title varchar(255) not null,
 allow_hint boolean,
 due_date timestamp not null
 );
@@ -102,7 +102,7 @@ unique(question_id,weight)
 
 CREATE TABLE quiz_assigned(
 id int primary key,
-qid varchar(50) not null references quiz(qid),
+qid varchar(255) not null references quiz(qid),
 cid int not null references classes(id),
 question_id int not null references weight(id),
 unique(qid,cid)
@@ -110,5 +110,5 @@ unique(qid,cid)
 
 CREATE TABLE response(
 id int not null references quiz_assigned(id),
-answer varchar(50) default ''
+answer varchar(255) default ''
 );
