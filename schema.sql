@@ -49,7 +49,7 @@ CREATE TABLE classes(
 classid int,
 grade int,
 room int references room(rid),
-sid int not null references student(id)
+sid int not null references student(sid)
 );
 
 /*
@@ -80,7 +80,7 @@ quest_id int not null references questions(question_id),
 lower_bound int not null,
 upper_bound int not null,
 hint varchar(50) not null,
-check (lower_bound < upper_cound),
+check (lower_bound < upper_bound),
 unique(quest_id,lower_bound,upper_bound)
 );
 
@@ -89,7 +89,7 @@ id varchar(50) unique not null,
 cid int references classes(cid);
 title varchar(50) not null,
 allow_hint boolean,
-due_date timestamp not null,
+due_date timestamp not null
 );
 
 CREATE TABLE quiz_bank(
