@@ -104,6 +104,7 @@ id int primary key,
 qid varchar(255) not null references quiz(qid),
 cid int not null references classes(id),
 question_id int not null references weight(id),
+unique(qid,cid,question_id)
 );
 
 CREATE TABLE response(
