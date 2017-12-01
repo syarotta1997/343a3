@@ -1,11 +1,5 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- * Author:  Administrator
- * Created: 29-Nov-2017
+
  */
 drop schema if exists quizschema cascade;
 create schema quizschema;
@@ -24,7 +18,7 @@ grade int not null,
 room int not null,
 teacher varchar(50) not null,
 student int REFERENCES student(sid),
-unique(class_id,student),
+unique(id,student),
 /* 
 The following constraint checks only one room has at most 1 teacher
 */
@@ -86,7 +80,7 @@ id int primary key,
 qid varchar(50) not null references quiz(quiz_id),
 quest_id int not null references questions(question_id),
 student int REFERENCES student(sid),
-answer varchar(50) not null set default ''
+answer varchar(50) set default ''
 unique(qid,quest_id,student)
 /* 
 The following constraint checks only a student in the class that was assigned 
