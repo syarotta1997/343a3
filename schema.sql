@@ -86,7 +86,7 @@ unique(quest_id,lower_bound,upper_bound)
 
 CREATE TABLE quiz(
 id varchar(50) unique not null,
-cid int references classes(cid);
+cid int references classes(cid),
 title varchar(50) not null,
 allow_hint boolean,
 due_date timestamp not null
