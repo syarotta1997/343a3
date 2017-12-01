@@ -50,9 +50,6 @@ text varchar(50) not null,
 unique(aid,quest_id)
 );
 
-alter table questions add constraint question_has_answer
-FOREIGN KEY (correct_ans) REFERENCES answers(aid);
-
 CREATE TABLE quiz(
 id int primary key,
 quiz_id varchar(50) not null unique,
