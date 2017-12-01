@@ -102,7 +102,7 @@ unique(question_id,weight)
 
 CREATE TABLE quiz_assigned(
 id int primary key,
-qid varchar(50) not null ,
+qid varchar(50) not null references quiz(qid),
 cid int not null references classes(id),
 question_id int not null references weight(id),
 unique(qid,cid)

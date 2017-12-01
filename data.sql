@@ -58,27 +58,56 @@ insert into classes(4, 1, 8, 120, 0997733991);
 insert into classes(5, 1, 8, 120, 5555555555);
 insert into classes(6, 2, 5, 366, 2222222222)
 
-insert into quiz(1, 'Pr1-220310', 1, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 1);
-insert into quiz(2, 'Pr1-220310', 1, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 2);
-insert into quiz(3, 'Pr1-220310', 1, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 3);
-insert into quiz(4, 'Pr1-220310', 1, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 4);
+insert into quiz('Pr1-220310', 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00');
 
-insert into quiz(1, 'Pr1-220310', 2, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 1);
-insert into quiz(2, 'Pr1-220310', 2, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 2);
-insert into quiz(3, 'Pr1-220310', 2, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 3);
-insert into quiz(4, 'Pr1-220310', 2, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 4);
+insert into quiz_assigned(1,'Pr1-220310', 1, 1);
+insert into quiz_assigned(2,'Pr1-220310', 1, 2);
+insert into quiz_assigned(3,'Pr1-220310', 1, 3);
+insert into quiz_assigned(4,'Pr1-220310', 1, 4);
 
-insert into quiz(1, 'Pr1-220310', 3, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 1);
-insert into quiz(2, 'Pr1-220310', 3, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 2);
-insert into quiz(3, 'Pr1-220310', 3, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 3);
-insert into quiz(4, 'Pr1-220310', 3, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 4);
+insert into quiz_assigned(5,'Pr1-220310', 2, 1);
+insert into quiz_assigned(6,'Pr1-220310', 2, 2);
+insert into quiz_assigned(7,'Pr1-220310', 2, 3);
+insert into quiz_assigned(8,'Pr1-220310', 2, 4);
 
-insert into quiz(1, 'Pr1-220310', 4, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 1);
-insert into quiz(2, 'Pr1-220310', 4, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 2);
-insert into quiz(3, 'Pr1-220310', 4, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 3);
-insert into quiz(4, 'Pr1-220310', 4, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 4);
+insert into quiz_assigned(9,'Pr1-220310', 3, 1);
+insert into quiz_assigned(10,'Pr1-220310', 3, 2);
+insert into quiz_assigned(11,'Pr1-220310', 3, 3);
+insert into quiz_assigned(12,'Pr1-220310', 3, 4);
 
-insert into quiz(1, 'Pr1-220310', 5, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 1);
-insert into quiz(2, 'Pr1-220310', 5, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 2);
-insert into quiz(3, 'Pr1-220310', 5, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 3);
-insert into quiz(4, 'Pr1-220310', 5, 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00', 4);
+insert into quiz_assigned(13,'Pr1-220310', 4, 1);
+insert into quiz_assigned(14,'Pr1-220310', 4, 2);
+insert into quiz_assigned(15,'Pr1-220310', 4, 3);
+insert into quiz_assigned(16,'Pr1-220310', 4, 4);
+
+insert into quiz_assigned(17,'Pr1-220310', 5, 1);
+insert into quiz_assigned(18,'Pr1-220310', 5, 2);
+insert into quiz_assigned(19,'Pr1-220310', 5, 3);
+insert into quiz_assigned(20,'Pr1-220310', 5, 4);
+
+insert into response(1, '1950');
+insert into response(2, 'False');
+insert into response(3, 'They expanded their defence system, including Fort York');
+insert into response(4, 'A network used by slaves who escaped the United States into Canada');
+
+insert into response(5, '1960');
+insert into response(6, 'False');
+insert into response(7, 'They burned down the White House in Washington D.C.');
+insert into response(8, 'A network used by slaves who escaped the United States into Canada');
+
+insert into response(9, '1960');
+insert into response(10, 'True');
+insert into response(11, 'They burned down the White House in Washington D.C.');
+insert into response(12, 'The CPR''s secret railway line');
+
+insert into response(13, 'no response given');
+insert into response(14, 'False');
+insert into response(15, 'They captured Niagara Falls');
+insert into response(16, 'no response given');
+
+insert into response(17);
+insert into response(18);
+insert into response(19);
+insert into response(20);
+
+
