@@ -32,9 +32,9 @@ insert into questions values( 790,
                                             York (now Toronto). What did the British and Canadians do in return?',
                                            'MC',
                                            'They burned down the White House in Washington D.C.');
-insert into MC_incorrect_answers values(782, 'They attacked American merchant ships',null);
-insert into MC_incorrect_answers values(782, 'They expanded their defence system, including Fort York',null);
-insert into MC_incorrect_answers values(782, 'They captured Niagara Falls',null);
+insert into MC_incorrect_answers values(782, 'They attacked American merchant ships','');
+insert into MC_incorrect_answers values(782, 'They expanded their defence system, including Fort York','');
+insert into MC_incorrect_answers values(782, 'They captured Niagara Falls','');
 
 insert into room values(120, 'Mr Higgins');
 insert into room values(366, 'Miss Nyers');

@@ -36,7 +36,6 @@ CREATE TABLE student(
 sid int not null unique,
 first_name varchar(50) not null,
 last_name varchar(50) not null
-check ( cast(sid as varchar(10)) like '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
 );
 
 -- creating an extra relation to constraint that each room has at most one teacher
