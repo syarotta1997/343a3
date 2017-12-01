@@ -40,19 +40,18 @@ id int primary key,
 question_id int not null unique,
 text varchar(50) not null,
 q_type question_type not null,
-correct int not null
+correct_ans int not null
 );
 
 CREATE TABLE answers(
 aid int primary key,
 quest_id int not null references questions(question_id),
 text varchar(50) not null,
-correct_ans boolean not null,
 unique(aid,quest_id)
 );
 
 alter table questions add constraint question_has_answer
-FOREIGN KEY (correct) REFERENCES answers(aid);
+FOREIGN KEY (correct_ans) REFERENCES answers(aid);
 
 CREATE TABLE quiz(
 id int primary key,
