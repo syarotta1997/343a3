@@ -54,10 +54,6 @@ sid int not null references student(sid),
 unique(classid,sid)
 );
 
-CREATE TABLE enrolled(
-cid int references classes(cid),
-);
-
 /*
 -- type enums 
 MC = multiple choice
@@ -109,7 +105,7 @@ unique(qid,question)
 );
 
 CREATE TABLE response(
-question int id not null references quiz(id),
+question int not null references quiz(id),
 sid int not null references student(sid),
 answer varchar(50) default '',
 unique(question,stud_class_id)
