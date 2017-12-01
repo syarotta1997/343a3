@@ -12,6 +12,12 @@ first_name varchar(50) not null,
 last_name varchar(50) not null
 );
 
+-- creating an extra relation to constraint that each room has at most one teacher
+CREATE TABLE room(
+id int primary key,
+teacher varchar(50) not null
+);
+
 CREATE TABLE classes(
 id int primary key,
 grade int not null,
@@ -19,11 +25,33 @@ room int not null references room(id),
 student int REFERENCES student(sid),
 unique(id,student)
 );
--- creating an extra relation to constraint that each room has at most one teacher
-CREATE TABLE room(
-id int primary key,
-teacher varchar(50) not null
+
+/*
+-- type enums 
+MC = multiple choice
+TF = true / false 
+NUM = numeric questions
+*/
+CREATE TYPE question_type AS ENUM(
+	'MC', 'TF', 'NUM');
+
+CREATE TABLE answers(
+aid int primary key,
+quest_id int not null,
+text varchar(50) not null,
+unique(aid,quest_id)
 );
+
+CREATE TABLE questions(
+id int primary key,
+quesiton_id int not null unique,
+text varchar(50) not null,
+q_type question_type not null,
+correct_ans int not null references answers(aid)
+);
+
+ALTER TABLE answers ADD CONSTRAINT fk_election_id 
+  FOREIGN KEY (quest_id) REFERENCES questions.id;
 
 CREATE TABLE quiz(
 id int primary key,
@@ -40,29 +68,6 @@ qid varchar(50) not null references quiz(quiz_id),
 question_id int not null references questions(question_id),
 weight int not null,
 unique(qid, question_id)
-);
-/*
--- type enums 
-MC = multiple choice
-TF = true / false 
-NUM = numeric questions
-*/
-CREATE TYPE question_type AS ENUM(
-	'MC', 'TF', 'NUM');
-
-CREATE TABLE questions(
-id int primary key,
-quesiton_id int not null unique,
-text varchar(50) not null,
-q_type question_type not null,
-correct_ans int not null references answers(aid)
-);
-
-CREATE TABLE answers(
-aid int primary key,
-quest_id int not null references questions(question_id),
-text varchar(50) not null,
-unique(aid,quest_id)
 );
 
 CREATE TABLE incorrect_answers(
