@@ -37,9 +37,10 @@ CREATE TYPE question_type AS ENUM(
 
 CREATE TABLE questions(
 id int primary key,
-quesiton_id int not null unique,
+question_id int not null unique,
 text varchar(50) not null,
-q_type question_type not null
+q_type question_type not null,
+correct int not null
 );
 
 CREATE TABLE answers(
@@ -49,6 +50,9 @@ text varchar(50) not null,
 correct_ans boolean not null,
 unique(aid,quest_id)
 );
+
+alter table questions add constraint
+FOREIGN KEY (correct) REFERENCES answers(aid);
 
 CREATE TABLE quiz(
 id int primary key,
