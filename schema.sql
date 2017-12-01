@@ -96,7 +96,7 @@ unique(question_id,weight)
 CREATE TABLE quiz(
 id int primary key,
 qid varchar(50) unique not null,
-cid int references classes(classid),
+cid int references classes(id),
 title varchar(50) not null,
 allow_hint boolean,
 due_date timestamp not null,
@@ -105,8 +105,7 @@ unique(qid,question)
 );
 
 CREATE TABLE response(
-question int not null references quiz(id),
-sid int not null references student(sid),
+quiz_id int not null references quiz(id),
 answer varchar(50) default '',
-unique(question,stud_class_id)
+unique(quiz_id,answer)
 );
