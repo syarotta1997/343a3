@@ -51,7 +51,7 @@ correct_ans boolean not null,
 unique(aid,quest_id)
 );
 
-alter table questions add constraint
+alter table questions add constraint question_has_answer
 FOREIGN KEY (correct) REFERENCES answers(aid);
 
 CREATE TABLE quiz(
