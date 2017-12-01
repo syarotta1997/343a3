@@ -15,13 +15,14 @@ last_name varchar(50) not null
 -- creating an extra relation to constraint that each room has at most one teacher
 CREATE TABLE room(
 id int primary key,
+rid int not null unique,
 teacher varchar(50) not null
 );
 
 CREATE TABLE classes(
 id int primary key,
 grade int not null,
-room int not null references room(id),
+room int not null references room(rid),
 student int REFERENCES student(sid),
 unique(id,student)
 );
@@ -44,7 +45,8 @@ correct_ans int not null
 );
 
 CREATE TABLE answers(
-aid int not null unique,
+id int primary key,
+aid int not null,
 quest_id int not null references questions(question_id),
 text varchar(50) not null,
 unique(aid,quest_id)
