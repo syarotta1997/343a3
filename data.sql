@@ -37,6 +37,7 @@ create schema quizschema;
 set search_path to quizschema;
 
 CREATE TABLE student(
+id int primary key,
 sid int not null unique,
 first_name varchar(50) not null,
 last_name varchar(50) not null
@@ -44,6 +45,7 @@ last_name varchar(50) not null
 
 -- creating an extra relation to constraint that each room has at most one teacher
 CREATE TABLE room(
+id int primary key,
 rid int not null unique,
 teacher varchar(50) not null
 );
@@ -80,6 +82,7 @@ unique(aid,quest_id)
 );
 
 CREATE TABLE quiz(
+id int primary key,
 quiz_id varchar(50) not null unique,
 title varchar(50) not null,
 allow_hint boolean,
@@ -88,6 +91,7 @@ cid int references classes(id)
 );
 
 CREATE TABLE quiz_bank(
+id int primary key,
 qid varchar(50) not null references quiz(quiz_id),
 question_id int not null references questions(question_id),
 weight int not null,
@@ -102,6 +106,7 @@ unique(aid,quest_id)
 );
 
 CREATE TABLE response(
+id int primary key,
 qid varchar(50) not null references quiz(quiz_id),
 sid int not null references student(sid),
 quest_id int not null references questions(question_id),
