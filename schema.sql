@@ -44,7 +44,7 @@ correct_ans int not null
 );
 
 CREATE TABLE answers(
-aid int not null,
+aid int not null unique,
 quest_id int not null references questions(question_id),
 text varchar(50) not null,
 unique(aid,quest_id)
