@@ -39,7 +39,7 @@ CREATE TABLE questions(
 id int primary key,
 quesiton_id int not null unique,
 text varchar(50) not null,
-q_type question_type not null,
+q_type question_type not null
 );
 
 CREATE TABLE answers(
