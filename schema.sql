@@ -44,7 +44,7 @@ q_type question_type not null
 
 CREATE TABLE answers(
 aid int primary key,
-quest_id int not null references questions.question_id,
+quest_id int not null references questions(question_id),
 text varchar(50) not null,
 correct_ans boolean not null,
 unique(aid,quest_id)
