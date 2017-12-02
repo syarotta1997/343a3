@@ -1,3 +1,5 @@
+set search_path to quizschema;
+
 insert into questions values( 782, 
                                            'What do you promise when you take the oath of citizenship?',
                                            'MC',
