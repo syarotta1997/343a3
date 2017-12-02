@@ -33,10 +33,10 @@ create schema quizschema;
 set search_path to quizschema;
 
 CREATE TABLE student(
-sid varchar(10) not null unique,
+sid int not null unique,
 first_name varchar(50) not null,
 last_name varchar(50) not null,
-check( length(sid) = 10 and (NOT sid LIKE '%[^0-9]%'))
+check( length( cast(sid as varchar)) = 10 )
 );
 
 -- creating an extra relation to constraint that each room has at most one teacher
@@ -50,7 +50,7 @@ id int primary key,
 classid int not null,
 grade int,
 room int references room(rid),
-sid varchar(10) not null references student(sid),
+sid int not null references student(sid),
 unique(classid,sid)
 );
 
