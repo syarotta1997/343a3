@@ -1,13 +1,11 @@
 /*
-Q3. Compute the grade and total score on quiz Pr1-220310 for every student in the grade 8 class in room 120 with
-Mr Higgins. Report the student number, last name, and total grade.
+Q4. For every student in the grade 8 class in room 120 with Mr Higgins, and every question from quiz Pr1-220310
+that they did not answer, report the student ID, the question ID, and the question text.
 */
 set search_path to quizschema;
 
 DROP VIEW IF EXISTS class_higgins CASCADE;
 DROP VIEW IF EXISTS student_response CASCADE;
-DROP VIEW IF EXISTS scores CASCADE;
-DROP VIEW IF EXISTS no_scores CASCADE;
 -- first we get the class_member id of all students from specified class
 create view class_higgins as
 select id,sid
@@ -22,20 +20,10 @@ from quiz join quiz_assigned on quiz.qid = quiz_assigned.qid
                 join response on response.id = quiz_assigned.id
 where quiz.qid = 'Pr1-220310';
 -- create table and count total weights as total grade for students who have answer at least one question correctly
-create view scores as
-select sid, sum(sr.weight) as total_grade
+select sid as student_id, questions.question_id, questions.text
 from student_response as sr left join questions as q on sr.question_id = q.question_id
-where sr.answer = q.correct_ans
-group by sid;
--- from the schema we assume that all students in the same class have been assigned the same quiz, then
--- for those who happen to have no response (missed the quiz or just did not answer at all)
--- or 0 correctly answered questions, simply given them 0 as mark
-create view no_scores as
-select sid, 0 as total_grade
-from (select sid from class_higgins except select sid from scores) as no_answer;
-
-select student.sid as student_number, student.last_name as last_name, results.total_grade
-from (select * from scores union select * from no_scores) results join student on results.sid = student.sid;
+where sr.answer = ''
+group by sid, questions.question_id, questions.text;
 
 
 
