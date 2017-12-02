@@ -36,16 +36,17 @@ CREATE TABLE student(
 sid varchar(10) not null unique,
 first_name varchar(50) not null,
 last_name varchar(50) not null,
-check( substring(sid,1,1) not like '%[^0-9]%'),
-check( substring(sid,2,1) not like '%[^0-9]%'),
-check( substring(sid,3,1) not like '%[^0-9]%'),
-check( substring(sid,4,1) not like '%[^0-9]%'),
-check( substring(sid,5,1) not like '%[^0-9]%'),
-check( substring(sid,6,1) not like '%[^0-9]%'),
-check( substring(sid,7,1) not like '%[^0-9]%'),
-check( substring(sid,8,1) not like '%[^0-9]%'),
-check( substring(sid,9,1) not like '%[^0-9]%'),
-check( substring(sid,10,1) not like '%[^0-9]%')
+check( (substring(sid,1,1) not like '%[^0-9]%')
+            and (substring(sid,2,1) not like '%[^0-9]%')
+            and (substring(sid,3,1) not like '%[^0-9]%')
+            and (substring(sid,4,1) not like '%[^0-9]%')
+            and (substring(sid,5,1) not like '%[^0-9]%')
+            and (substring(sid,6,1) not like '%[^0-9]%')
+            and (substring(sid,7,1) not like '%[^0-9]%')
+            and (substring(sid,8,1) not like '%[^0-9]%')
+            and (substring(sid,9,1) not like '%[^0-9]%')
+            and (substring(sid,10,1) not like '%[^0-9]%')
+)
 );
 
 -- creating an extra relation to constraint that each room has at most one teacher
