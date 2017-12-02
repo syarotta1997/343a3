@@ -36,15 +36,15 @@ CREATE TABLE student(
 sid varchar(10) not null unique,
 first_name varchar(50) not null,
 last_name varchar(50) not null,
-check( substring(sid,1,1) like '[0-9]')
-check( substring(sid,2,1) like '[0-9]')
-check( substring(sid,3,1) like '[0-9]')
-check( substring(sid,4,1) like '[0-9]')
-check( substring(sid,5,1) like '[0-9]')
-check( substring(sid,6,1) like '[0-9]')
-check( substring(sid,7,1) like '[0-9]')
-check( substring(sid,8,1) like '[0-9]')
-check( substring(sid,9,1) like '[0-9]')
+check( substring(sid,1,1) like '[0-9]'),
+check( substring(sid,2,1) like '[0-9]'),
+check( substring(sid,3,1) like '[0-9]'),
+check( substring(sid,4,1) like '[0-9]'),
+check( substring(sid,5,1) like '[0-9]'),
+check( substring(sid,6,1) like '[0-9]'),
+check( substring(sid,7,1) like '[0-9]'),
+check( substring(sid,8,1) like '[0-9]'),
+check( substring(sid,9,1) like '[0-9]'),
 check( substring(sid,10,1) like '[0-9]')
 );
 
