@@ -1,7 +1,6 @@
 /*
 Q5. For each question on quiz Pr1-220310, report the number of students in the grade 8 class in room 120 with
 Mr Higgins who got the question right, the number who got it wrong, and the number who did not answer it.
-
 */
 set search_path to quizschema;
 
