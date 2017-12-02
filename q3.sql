@@ -20,9 +20,11 @@ from quiz join quiz_assigned on quiz.qid = quiz_assigned.qid
                 join class_higgins on quiz_assigned.cid = class_higgins.id
                 join response on response.id = quiz_assigned.id;
 
+
+
 create view scores as
 select sid, sum(sr.weight) as total_grade
-from student_response as sr join questions as q on sr.question_id = q.question_id
+from student_response as sr left join questions as q on sr.question_id = q.question_id
 where sr.answer = q.correct_ans
 group by sid;
 
