@@ -15,9 +15,11 @@ where questions.q_type = 'TF';
 
 create view hints as
 select question_id as question_ID, count(hint) as hint_count
-from (select * from ( select * from questions as q  join MC_incorrect_answers as m on q.question_id = m.quest_id ) as mc_hints 
+from ( select * from questions as q  join MC_incorrect_answers as m 
+                                                       on q.question_id = m.quest_id
           union 
-                               (select * from questions as q  join NUM_incorrect_answers as n on q.question_id = n.quest_id) as num_hints);
+           select * from questions as q  join NUM_incorrect_answers as n 
+                                                        on q.question_id = n.quest_id) as other_hints;
 
 select *
 from TF_hint union hints;
