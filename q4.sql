@@ -20,10 +20,10 @@ from quiz join quiz_assigned on quiz.qid = quiz_assigned.qid
                 join response on response.id = quiz_assigned.id
 where quiz.qid = 'Pr1-220310';
 -- create table and count total weights as total grade for students who have answer at least one question correctly
-select sid as student_id, questions.question_id, questions.text
+select sid as student_id, q.question_id, q.text
 from student_response as sr left join questions as q on sr.question_id = q.question_id
 where sr.answer = ''
-group by sid, questions.question_id, questions.text;
+group by sid, q.question_id, q.text;
 
 
 
