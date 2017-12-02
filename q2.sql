@@ -5,10 +5,23 @@ hints).
 */
 set search_path to quizschema;
 
-select questions.question_id as question_ID, count(hint) as hint_count
-from questions left join MC_incorrect_answers as m on questions.question_id = m.quest_id 
-                        left join NUM_incorrect_answers as n on questions.question_id = n.quest_id
-group by questions.question_id;
+DROP VIEW IF EXISTS TF_hint CASCADE;
+DROP VIEW IF EXISTS hints CASCADE;
+
+create view TF_hint as
+select questions.question_id as question_ID, NULL as hint_count
+from questions
+where questions.q_type = 'TF';
+
+create view hints as
+select question_id as question_ID, count(hint) as hint_count
+from (select * from ( select * from questions as q  join MC_incorrect_answers as m on q.question_id = m.quest_id ) 
+          union 
+                               (select * from questions as q  join NUM_incorrect_answers as n on q.question_id = n.quest_id));
+
+select *
+from TF_hint union hints;
+
 
 
 
