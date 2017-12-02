@@ -23,7 +23,8 @@ where quiz.qid = 'Pr1-220310';
 select sid as student_id, q.question_id, q.text
 from student_response as sr left join questions as q on sr.question_id = q.question_id
 where sr.answer = ''
-group by sid, q.question_id, q.text;
+group by sid, q.question_id, q.text
+order by sid;
 
 
 
