@@ -72,7 +72,7 @@ correct_ans varchar(255) not null
 CREATE TABLE MC_incorrect_answers(
 quest_id int not null references questions(question_id),
 text varchar(255) not null,
-hint varchar(255) not null,
+hint varchar(255),
 unique(quest_id,text)
 );
 
@@ -80,7 +80,7 @@ CREATE TABLE NUM_incorrect_answers(
 quest_id int not null references questions(question_id),
 lower_bound int not null,
 upper_bound int not null,
-hint varchar(255) not null,
+hint varchar(255),
 check (lower_bound < upper_bound),
 unique(quest_id,lower_bound,upper_bound)
 );
