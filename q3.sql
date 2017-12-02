@@ -7,14 +7,14 @@ set search_path to quizschema;
 DROP VIEW IF EXISTS class_higgins CASCADE;
 
 create view class_higgins as
-select cid,sid
+select id,sid
 from classes join room on classes.room = room.rid
 where room.rid = 120 and room.teacher = 'Mr Higgins' and classes.grade = 8;
 
 select sid, weight.question_id, weight.weight, response.answer
 from quiz join quiz_assigned on quiz.qid = quiz_assigned.qid
                 join weight on quiz_assigned.wid = weight.id
-                join class_higgins on quiz_assigned.cid = class_higgins.cid
+                join class_higgins on quiz_assigned.cid = class_higgins.id
                 join response on response.id = quiz_assigned.id;
 
 
