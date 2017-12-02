@@ -24,17 +24,17 @@ insert into questions values( 625,
                                            'What is the Underground Railroad?',
                                            'MC',
                                            'A network used by slaves who escaped the United States into Canada');
-insert into MC_incorrect_answers values(782, 'The first railway to cross Canada','The Underground Railroad was generally south to north, not east-west.');
-insert into MC_incorrect_answers values(782, 'The CPR''s secret railway line','The Underground Railroad was secret, but it had nothing to do with trains.');
-insert into MC_incorrect_answers values(782, 'The TTC subway system','The TTC is relatively recent; the Underground Railroad was in operation over 100 years ago.');
+insert into MC_incorrect_answers values(625, 'The first railway to cross Canada','The Underground Railroad was generally south to north, not east-west.');
+insert into MC_incorrect_answers values(625, 'The CPR''s secret railway line','The Underground Railroad was secret, but it had nothing to do with trains.');
+insert into MC_incorrect_answers values(625, 'The TTC subway system','The TTC is relatively recent; the Underground Railroad was in operation over 100 years ago.');
 insert into questions values( 790, 
                                            'During the War of 1812 the Americans burned down the Parliament Buildings in
                                             York (now Toronto). What did the British and Canadians do in return?',
                                            'MC',
                                            'They burned down the White House in Washington D.C.');
-insert into MC_incorrect_answers values(782, 'They attacked American merchant ships','');
-insert into MC_incorrect_answers values(782, 'They expanded their defence system, including Fort York','');
-insert into MC_incorrect_answers values(782, 'They captured Niagara Falls','');
+insert into MC_incorrect_answers values(790, 'They attacked American merchant ships','');
+insert into MC_incorrect_answers values(790, 'They expanded their defence system, including Fort York','');
+insert into MC_incorrect_answers values(790, 'They captured Niagara Falls','');
 
 insert into room values(120, 'Mr Higgins');
 insert into room values(366, 'Miss Nyers');
