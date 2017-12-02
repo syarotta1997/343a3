@@ -24,7 +24,7 @@ from ( select question_id, hint from questions as q  join MC_incorrect_answers a
 group by other_hints.question_id;
 
 select *
-from (select * from TF_hint union hints) as all_hints;
+from (select * from TF_hint union select * from hints) as all_hints;
 
 
 
