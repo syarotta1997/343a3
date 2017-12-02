@@ -44,7 +44,8 @@ from student_response as sr left join questions as q on sr.question_id = q.quest
 where sr.answer = ''
 group by q.question_id;
 
-select *
+select correct.question_id as question_id, correct.counts as num_correct,incorrect.counts as num_incorrect,
+          no_ans.counts as num_no_ans
 from correct full join incorrect on correct.question_id = incorrect. question_id 
                     full join no_ans on correct.question_id = no_ans. question_id ;
 
