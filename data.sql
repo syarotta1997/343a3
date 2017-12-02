@@ -42,24 +42,24 @@ insert into MC_incorrect_answers values(790, 'They captured Niagara Falls');
 insert into room values(120, 'Mr Higgins');
 insert into room values(366, 'Miss Nyers');
 
-insert into student values('2222222222','Maisie','Williams');
-insert into student values('0998801234','Lena','Headey');
-insert into student values('0010784522','Peter','Dinklage');
-insert into student values('0997733991','Emilia','Clarke');
-insert into student values('5555555555','Kit','Harrington');
-insert into student values('1111111111','Sophie','Turner');
+insert into student values( 2222222222,'Maisie','Williams');
+insert into student values( 0998801234 ,'Lena','Headey');
+insert into student values( 0010784522,'Peter','Dinklage');
+insert into student values(0997733991,'Emilia','Clarke');
+insert into student values(5555555555,'Kit','Harrington');
+insert into student values(1111111111,'Sophie','Turner');
 
 insert into weight values(1, 601, 2);
 insert into weight values(2, 566, 1);
 insert into weight values(3, 790, 3);
 insert into weight values(4, 625, 2);
 
-insert into classes values(1, 1, 8, 120, '0998801234');
-insert into classes values(2, 1, 8, 120, '0010784522');
-insert into classes values(3, 1, 8, 120, '0997733991');
-insert into classes values(4, 1, 8, 120, '5555555555');
-insert into classes values(5, 1, 8, 120, '1111111111');
-insert into classes values(6, 2, 5, 366, '2222222222');
+insert into classes values(1, 1, 8, 120, 0998801234);
+insert into classes values(2, 1, 8, 120, 0010784522);
+insert into classes values(3, 1, 8, 120, 0997733991);
+insert into classes values(4, 1, 8, 120, 5555555555);
+insert into classes values(5, 1, 8, 120, 1111111111);
+insert into classes values(6, 2, 5, 366, 2222222222);
 
 
 insert into quiz values('Pr1-220310', 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00');
