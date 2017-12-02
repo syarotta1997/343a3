@@ -21,12 +21,12 @@ from quiz join quiz_assigned on quiz.qid = quiz_assigned.qid
                 join response on response.id = quiz_assigned.id;
 
 create view scores as
-select sid, sum(sr.weight)
+select sid, sum(sr.weight) as total_grade
 from student_response as sr join questions as q on sr.question_id = q.question_id
 where sr.answer = q.correct_ans
 group by sid;
 
-select student.sid as student_number, student.last_name as last_name, scores.weight as total_grade
+select student.sid as student_number, student.last_name as last_name, scores.total_grade
 from scores join student on scores.sid = student.sid;
 
 
