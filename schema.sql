@@ -36,6 +36,7 @@ CREATE TABLE student(
 sid bigint not null unique,
 first_name varchar(50) not null,
 last_name varchar(50) not null
+check (length( replace(cast(sid as varchar), '0', '1')) = 10 )
 );
 
 -- creating an extra relation to constraint that each room has at most one teacher
