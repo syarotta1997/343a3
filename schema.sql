@@ -33,7 +33,7 @@ create schema quizschema;
 set search_path to quizschema;
 
 CREATE TABLE student(
-sid int not null unique,
+sid bigint not null unique,
 first_name varchar(50) not null,
 last_name varchar(50) not null
 );
@@ -49,7 +49,7 @@ id int primary key,
 classid int not null,
 grade int,
 room int references room(rid),
-sid int not null references student(sid),
+sid bigint not null references student(sid),
 unique(classid,sid)
 );
 
