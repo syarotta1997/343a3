@@ -109,5 +109,5 @@ unique(qid,cid,wid)
 
 CREATE TABLE response(
 id int not null references quiz_assigned(id),
-answer varchar(255) set default '-'
+answer varchar(255) not null
 );
