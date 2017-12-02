@@ -6,7 +6,7 @@ hints).
 set search_path to quizschema;
 
 select count(hint)
-from quesitons left join MC_incorrect_answers as m on questions.question_id = m.quest_id 
+from questions left join MC_incorrect_answers as m on questions.question_id = m.quest_id 
                         left join NUM_incorrect_answers as n on quesitons.question_id = n.quest_id
 group by questions.question_id;
 
