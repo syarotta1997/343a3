@@ -33,7 +33,7 @@ group by q.question_id;
 create view incorrect as
 select count(sid) as counts, q.question_id
 from student_response as sr left join questions as q on sr.question_id = q.question_id
-where sr.answer <> q.correct_ans and sr.answer <> ''
+where sr.answer != q.correct_ans and sr.answer != ''
 group by q.question_id;
 -- from the schema we assume that all students in the same class have been assigned the same quiz, then
 -- for those who happen to have no response (missed the quiz or just did not answer at all)
