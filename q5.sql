@@ -44,7 +44,7 @@ where sr.answer = '';
 select count(correct.sid) as num_correct, count(incorrect.sid) as num_incorrect, count(no_ans.sid) as num_no_answer
 from correct full join incorrect on correct.question_id = incorrect. question_id 
                     full join no_ans on correct.question_id = no_ans. question_id 
-group by question_id;
+group by correct.question_id;
 
 
 
