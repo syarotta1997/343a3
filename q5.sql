@@ -42,7 +42,8 @@ from student_response as sr left join questions as q on sr.question_id = q.quest
 where sr.answer = '';
 
 select count(correct.sid) as num_correct, count(incorrect.sid) as num_incorrect, count(no_ans.sid) as num_no_answer
-from correct full join incorrect on question_id full join no_ans on question_id
+from correct full join incorrect on correct.question_id = incorrect. question_id 
+                    full join no_ans on correct.question_id = no_ans. question_id 
 group by question_id;
 
 
