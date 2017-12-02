@@ -25,23 +25,26 @@ from quiz join quiz_assigned on quiz.qid = quiz_assigned.qid
 where quiz.qid = 'Pr1-220310';
 -- create table and count total weights as total grade for students who have answer at least one question correctly
 create view correct as
-select sid, q.question_id
+select count(sid) as counts, q.question_id
 from student_response as sr left join questions as q on sr.question_id = q.question_id
-where sr.answer = q.correct_ans;
+where sr.answer = q.correct_ans
+group by q.question_id;
 
 create view incorrect as
-select sid, q.question_id
+select count(sid) as counts, q.question_id
 from student_response as sr left join questions as q on sr.question_id = q.question_id
-where sr.answer <> q.correct_ans and sr.answer <> '';
+where sr.answer <> q.correct_ans and sr.answer <> ''
+group by q.question_id;
 -- from the schema we assume that all students in the same class have been assigned the same quiz, then
 -- for those who happen to have no response (missed the quiz or just did not answer at all)
 -- or 0 correctly answered questions, simply given them 0 as mark
 create view no_ans as
-select sid, q.question_id
+select count(sid) as counts, q.question_id
 from student_response as sr left join questions as q on sr.question_id = q.question_id
-where sr.answer = '';
+where sr.answer = ''
+group by q.question_id;
 
-select count(correct.sid) as num_correct, count(incorrect.sid) as num_incorrect, count(no_ans.sid) as num_no_answer
+select *
 from correct full join incorrect on correct.question_id = incorrect. question_id 
                     full join no_ans on correct.question_id = no_ans. question_id 
 group by correct.question_id;
