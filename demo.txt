@@ -1,0 +1,213 @@
+dbsrv1:~/343a3$ psql csc343h-luke6
+psql (9.5.10)
+Type "help" for help.
+
+csc343h-luke6=> \i runner.txt
+-- Loading schema and data:
+psql:schema.sql:31: NOTICE:  drop cascades to 16 other objects
+DETAIL:  drop cascades to table quizschema.student
+drop cascades to table quizschema.room
+drop cascades to table quizschema.classes
+drop cascades to type quizschema.question_type
+drop cascades to table quizschema.questions
+drop cascades to table quizschema.mc_incorrect_answers
+drop cascades to table quizschema.num_incorrect_answers
+drop cascades to table quizschema.quiz
+drop cascades to table quizschema.weight
+drop cascades to table quizschema.quiz_assigned
+drop cascades to table quizschema.response
+drop cascades to view quizschema.class_higgins
+drop cascades to view quizschema.student_response
+drop cascades to view quizschema.correct
+drop cascades to view quizschema.incorrect
+drop cascades to view quizschema.no_ans
+DROP SCHEMA
+CREATE SCHEMA
+SET
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TYPE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+-- Query 1:
+SET
+  student_name   | student_number
+-----------------+----------------
+ Maisie Williams | 2222222222
+ Lena Headey     | 0998801234
+ Peter Dinklage  | 0010784522
+ Emilia Clarke   | 0997733991
+ Kit Harrington  | 5555555555
+ Sophie Turner   | 1111111111
+(6 rows)
+
+-- Query 2:
+SET
+psql:q2.sql:8: NOTICE:  view "tf_hint" does not exist, skipping
+DROP VIEW
+psql:q2.sql:9: NOTICE:  view "hints" does not exist, skipping
+DROP VIEW
+psql:q2.sql:14: WARNING:  column "hint_count" has type "unknown"
+DETAIL:  Proceeding with relation creation anyway.
+CREATE VIEW
+CREATE VIEW
+ question_id |                        text                        | hint_count
+-------------+----------------------------------------------------+------------
+         566 | The Prime Minister, Justin Trudeau, is Canada's He |
+         782 | What do you promise when you take the oath of citi |          2
+         625 | What is the Underground Railroad?                  |          3
+         790 | During the War of 1812 the Americans burned down t |          0
+         601 | During the "Quiet Revolution," Quebec experienced  |          3
+(5 rows)
+
+-- Query 3:
+SET
+psql:q3.sql:7: NOTICE:  view "class_higgins" does not exist, skipping
+DROP VIEW
+psql:q3.sql:8: NOTICE:  view "student_response" does not exist, skipping
+DROP VIEW
+psql:q3.sql:9: NOTICE:  view "scores" does not exist, skipping
+DROP VIEW
+psql:q3.sql:10: NOTICE:  view "no_scores" does not exist, skipping
+DROP VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+ student_number | last_name  | total_grade
+----------------+------------+-------------
+ 0010784522     | Dinklage   |           8
+ 0997733991     | Clarke     |           5
+ 0998801234     | Headey     |           3
+ 1111111111     | Turner     |           0
+ 5555555555     | Harrington |           1
+(5 rows)
+
+-- Query 4:
+SET
+psql:q4.sql:7: NOTICE:  drop cascades to 3 other objects
+DETAIL:  drop cascades to view student_response
+drop cascades to view scores
+drop cascades to view no_scores
+DROP VIEW
+psql:q4.sql:8: NOTICE:  view "student_response" does not exist, skipping
+DROP VIEW
+CREATE VIEW
+CREATE VIEW
+ student_id | question_id |                        text
+------------+-------------+----------------------------------------------------
+ 1111111111 |         566 | The Prime Minister, Justin Trudeau, is Canada's He
+ 1111111111 |         601 | During the "Quiet Revolution," Quebec experienced
+ 1111111111 |         625 | What is the Underground Railroad?
+ 1111111111 |         790 | During the War of 1812 the Americans burned down t
+ 5555555555 |         601 | During the "Quiet Revolution," Quebec experienced
+ 5555555555 |         625 | What is the Underground Railroad?
+(6 rows)
+
+-- Query 5:
+SET
+psql:q5.sql:7: NOTICE:  drop cascades to view student_response
+DROP VIEW
+psql:q5.sql:8: NOTICE:  view "student_response" does not exist, skipping
+DROP VIEW
+psql:q5.sql:9: NOTICE:  view "correct" does not exist, skipping
+DROP VIEW
+psql:q5.sql:10: NOTICE:  view "incorrect" does not exist, skipping
+DROP VIEW
+psql:q5.sql:11: NOTICE:  view "no_ans" does not exist, skipping
+DROP VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+ question_id | num_correct | num_incorrect | num_no_ans
+-------------+-------------+---------------+------------
+         790 |           2 |             2 |          1
+         566 |           3 |             1 |          1
+         625 |           2 |             1 |          2
+         601 |           2 |             1 |          2
+(4 rows)
+
+csc343h-luke6=>
