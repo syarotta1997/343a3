@@ -103,10 +103,10 @@ insert into response values(10, 'True');
 insert into response values(11, 'They burned down the White House in Washington D.C.');
 insert into response values(12, 'The CPR''s secret railway line');
 
-insert into response values(13);
+insert into response values(13,);
 insert into response values(14, 'False');
 insert into response values(15, 'They captured Niagara Falls');
-insert into response values(16);
+insert into response values(16,);
 
 insert into response values(17);
 insert into response values(18);
