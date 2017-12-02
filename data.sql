@@ -54,12 +54,13 @@ insert into weight values(2, 566, 1);
 insert into weight values(3, 790, 3);
 insert into weight values(4, 625, 2);
 
-insert into classes values(1, 1, 8, 120, '1111111111');
-insert into classes values(2, 1, 8, 120, '0998801234');
-insert into classes values(3, 1, 8, 120, '0010784522');
-insert into classes values(4, 1, 8, 120, '0997733991');
-insert into classes values(5, 1, 8, 120, '5555555555');
+insert into classes values(1, 1, 8, 120, '0998801234');
+insert into classes values(2, 1, 8, 120, '0010784522');
+insert into classes values(3, 1, 8, 120, '0997733991');
+insert into classes values(4, 1, 8, 120, '5555555555');
+insert into classes values(5, 1, 8, 120, '1111111111');
 insert into classes values(6, 2, 5, 366, '2222222222');
+
 
 insert into quiz values('Pr1-220310', 'Citizenship Test Practise Questions', True, '2017-10-01 13:30:00');
 
