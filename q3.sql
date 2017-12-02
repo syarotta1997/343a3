@@ -7,6 +7,7 @@ set search_path to quizschema;
 DROP VIEW IF EXISTS class_higgins CASCADE;
 DROP VIEW IF EXISTS student_response CASCADE;
 DROP VIEW IF EXISTS scores CASCADE;
+DROP VIEW IF EXISTS no_scores CASCADE;
 
 create view class_higgins as
 select id,sid
@@ -23,12 +24,12 @@ from quiz join quiz_assigned on quiz.qid = quiz_assigned.qid
 create view scores as
 select sid, sum(sr.weight) as total_grade
 from student_response as sr left join questions as q on sr.question_id = q.question_id
-group by sid
-having sr.answer = q.correct_ans;
+where sr.answer = q.correct_ans
+group by sid;
 
 create view no_scores as
 select sid, 0 as total_grade
-from (select sid from student_responses except select sid from scores) as no_answer;
+from (select sid from student_response except select sid from scores) as no_answer;
 
 select student.sid as student_number, student.last_name as last_name, results.total_grade
 from (select * from scores union select * from no_scores) results join student on results.sid = student.sid;
