@@ -90,7 +90,7 @@ insert into quiz_assigned values(17,'Pr1-220310', 5, 1);
 insert into quiz_assigned values(18,'Pr1-220310', 5, 2);
 insert into quiz_assigned values(19,'Pr1-220310', 5, 3);
 insert into quiz_assigned values(20,'Pr1-220310', 5, 4);
-
+-- By the reponses, I am assuming user will put empty string for no reponses
 insert into response values(1, '1950');
 insert into response values(2, 'False');
 insert into response values(3, 'They expanded their defence system, including Fort York');
